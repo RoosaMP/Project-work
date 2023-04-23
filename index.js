@@ -1,9 +1,9 @@
 const express = require('express'); //require express
 const exphbs = require('express-handlebars'); //require express-handlebars
-const app = express();
+const app = express(); //require express
 
 app.engine('handlebars', exphbs.engine({
-    defaultLayout: 'main'
+    defaultLayout: 'main' //setting up main.handlebars as default layout
 }));
 
 app.set('view engine', 'handlebars');
@@ -23,14 +23,12 @@ app.get('/news', (req, res) => {
     });
 })
 
-
 app.get('/entertainment', (req, res) => {
     res.render('entertainment',
     {
         pagetitle: "Viihde"
     });
 })
-
 
 app.get('/sport', (req, res) => {
     res.render('sport',
