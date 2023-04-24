@@ -1,3 +1,22 @@
 body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.otsikko{
+    font-family: 'Impact';
+    text-align:center !important;
+    margin:0 auto;
+}
+.navbar{
+    background-image: url("img/Header-tausta.jpg") !important;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 80px;
+    background-size: cover;
+}
+.nav-link{
+    color: black !important;
+}
+.navbar-nav a:hover{
+    color: white !important;
+}

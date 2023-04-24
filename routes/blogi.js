@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/blogi/', (req, res) => {
-    res.render('blogi',
-    {
-        pagetitle: "Blogi"
-    });
-})
+const blogiController = require('../controllers/blogi.js');
+
+router.get('/blogi', blogiController.home);
 
 module.exports = router;

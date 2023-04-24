@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('index',
-    {
-        pagetitle : "Etusivu"
-    });
-})
+const indexController = require('../controllers/index.js');
+
+router.get('/', indexController.home);
 
 module.exports = router;
