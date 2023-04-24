@@ -37,12 +37,7 @@ app.get('/yhteystiedot', (req, res) => {
     });
 })
 
-app.get('/admin', (req, res) => {
-    res.render('admin',
-    {
-        pagetitle : "Admin"
-    });
-})
+app.use('', require('./routes/admin.js'));
 
 const PORT = process.env.PORT || 3000; //listen port 3000
 app.listen(PORT, () => console.log(`Listening port ${PORT}`)); 
