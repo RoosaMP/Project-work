@@ -37,5 +37,12 @@ app.get('/sport', (req, res) => {
     });
 })
 
+app.get('/admin', (req, res) => {
+    res.render('admin',
+    {
+        pagetitle : "Admin"
+    });
+})
+
 const PORT = process.env.PORT || 3000; //listen port 3000
 app.listen(PORT, () => console.log(`Listening port ${PORT}`)); 
