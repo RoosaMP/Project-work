@@ -16,24 +16,24 @@ app.get('/', (req, res) => {
     });
 })
 
-app.get('/news', (req, res) => {
-    res.render('news',
+app.get('/blogi', (req, res) => {
+    res.render('blogi',
     {
-        pagetitle: "Uutiset"
+        pagetitle: "Blogi"
     });
 })
 
-app.get('/entertainment', (req, res) => {
-    res.render('entertainment',
+app.get('/kauppa', (req, res) => {
+    res.render('kauppa',
     {
-        pagetitle: "Viihde"
+        pagetitle: "Faniverkkokauppa"
     });
 })
 
-app.get('/sport', (req, res) => {
-    res.render('sport',
+app.get('/yhteystiedot', (req, res) => {
+    res.render('yhteystiedot',
     {
-        pagetitle: "Urheilu"
+        pagetitle: "yhteystiedot"
     });
 })
 
