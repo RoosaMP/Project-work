@@ -9,34 +9,8 @@ app.engine('handlebars', exphbs.engine({
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-    res.render('index',
-    {
-        pagetitle : "Etusivu"
-    });
-})
-
-app.get('/blogi', (req, res) => {
-    res.render('blogi',
-    {
-        pagetitle: "Blogi"
-    });
-})
-
-app.get('/kauppa', (req, res) => {
-    res.render('kauppa',
-    {
-        pagetitle: "Faniverkkokauppa"
-    });
-})
-
-app.get('/yhteystiedot', (req, res) => {
-    res.render('yhteystiedot',
-    {
-        pagetitle: "yhteystiedot"
-    });
-})
-
+app.use('', require('./routes/index.js'));
+app.use('', require('./routes/blogi.js'));
 app.use('', require('./routes/admin.js'));
 
 const PORT = process.env.PORT || 3000; //listen port 3000
