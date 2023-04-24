@@ -1,6 +1,8 @@
 const express = require('express'); //require express
+const mongoose = require('mongoose');
 const exphbs = require('express-handlebars'); //require express-handlebars
 const app = express(); //require express
+require('dotenv').config();
 
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main' //setting up main.handlebars as default layout

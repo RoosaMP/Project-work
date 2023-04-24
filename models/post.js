@@ -1,5 +1,16 @@
-let posts = [
-    {heading: String, article: String} 
-];
+const mongoose = require('mongoose');
 
-module.exports = posts;
+const postSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  article: {
+    type: String,
+    required: true
+  }
+});
+
+const Post = mongoose.model('Post', postSchema);
+
+module.exports = Post;
