@@ -14,8 +14,15 @@ const Post = require('../models/post.js');
 
 
 
-const home = (req,res) => {
-    res.render('admin');
+const home = async (req,res) => {
+    try {
+        const posts = await Post.find({});
+        res.render('admin', { posts });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
 }
 
 const create_post = (req,res,next) => {
@@ -34,9 +41,19 @@ const create_post = (req,res,next) => {
     });
 };
 
-//const delete_post = async (req,res,next)
+const delete_post = async (req,res,next) => {
+    const posttId = req.body.postId;
+    try {
+        await Post.findByIdAndRemove(posttId);
+        res.redirect('/');
+    }
+    catch (err) {
+        console.log(err)
+    }
+};
 
 module.exports = {
     home,
-    create_post
+    create_post,
+    delete_post
 }
