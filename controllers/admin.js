@@ -12,6 +12,8 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
 
+
+
 const home = (req,res) => {
     res.render('admin');
 }
