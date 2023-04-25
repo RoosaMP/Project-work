@@ -6,7 +6,11 @@ require('dotenv').config();
 const routes = require('./routes');
 
 app.engine('handlebars', exphbs.engine({
-    defaultLayout: 'main' //setting up main.handlebars as default layout
+    defaultLayout: 'main', //setting up main.handlebars as default layout
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true
+    }
 }));
 
 app.use(express.urlencoded({ extended: true }));
