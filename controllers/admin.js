@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: false}));
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
-const Post = require('../models/Post.js');
+const Post = require('../models/post.js');
 
 const home = (req,res) => {
     res.render('admin');
