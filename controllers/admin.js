@@ -34,7 +34,7 @@ const create_post = (req,res,next) => {
 
     post.save()
     .then(() => {
-      res.redirect('/');
+      res.redirect('/admin');
     })
     .catch((err) => {
       return next(err);
