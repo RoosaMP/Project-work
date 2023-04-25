@@ -1,14 +1,8 @@
 const mongoose = require('mongoose');
 
 const postSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true
-  },
-  article: {
-    type: String,
-    required: true
-  }
+  title: String,
+  context: String,
 });
 
 const Post = mongoose.model('Post', postSchema);

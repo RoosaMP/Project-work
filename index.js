@@ -3,10 +3,14 @@ const mongoose = require('mongoose');
 const exphbs = require('express-handlebars'); //require express-handlebars
 const app = express(); //require express
 require('dotenv').config();
+const routes = require('./routes');
 
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main' //setting up main.handlebars as default layout
 }));
+
+app.use(express.urlencoded({ extended: true }));
+app.use('/', routes);
 
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));

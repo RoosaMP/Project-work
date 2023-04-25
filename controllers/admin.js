@@ -2,8 +2,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const router = express.Router();
-const bodyParser = require('body-parser');
-const path = require('path');
 
 const app = express();
 
@@ -18,24 +16,22 @@ const home = (req,res) => {
     res.render('admin');
 }
 
-const addPost = async (req,res) => {
-    const { title, article } = req.body;
-    try 
-    {
-        const post = new Post({
-            title: title,
-            article: article
-        });
-        await post.save();
-        res.redirect('/');
-    }
-    catch (error) {
-        console.log(error);
-        res.status(400).send('Error');
-    }
+const create_post = function(req,res,next) {
+    const post = new Post({
+        title: req.body.title,
+        context: req.body.context
+    });
+
+    post.save()
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((err) => {
+      return next(err);
+    });
 };
 
 module.exports = {
     home,
-    addPost
-};
+    create_post
+}

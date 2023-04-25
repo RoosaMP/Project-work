@@ -5,6 +5,6 @@ const adminController = require('../controllers/admin.js');
 
 router.get('/admin', adminController.home);
 
-router.post('/addpost', adminController.addPost);
+router.post('/addpost', adminController.create_post);
 
 module.exports = router;
