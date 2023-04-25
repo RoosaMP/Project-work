@@ -18,7 +18,8 @@ const home = (req,res) => {
     res.render('admin');
 }
 
-const create_post = function(req,res,next) {
+const create_post = (req,res,next) => {
+
     const post = new Post({
         title: req.body.title,
         context: req.body.context
@@ -32,6 +33,8 @@ const create_post = function(req,res,next) {
       return next(err);
     });
 };
+
+//const delete_post = async (req,res,next)
 
 module.exports = {
     home,
