@@ -29,6 +29,10 @@ body {
     color: #F9F7F0 !important;
 }
 
+.navbar-nav a:visited{
+    color: #DDA0DD;
+  }
+
 /* Tällä saa headerin ilman reunoja ja kehyksiä */
 .nopadding {
     padding: 0 !important;
@@ -73,10 +77,13 @@ footer a{
     font-size: 20px;
 }
 
- /* Footer linkit kun hiirtä käyttää päällä */
  footer a:hover{
     color: #F9F7F0 !important;
 }
+
+footer a:visited {
+    color: #DDA0DD;
+  }
 
 .footer-link1{
    padding-right: 300px;
