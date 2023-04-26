@@ -39,6 +39,20 @@ body {
     margin: 0 !important;
 }
 
+/* Hamburilaismenu piiloon*/
+/* .hamburger-menu {
+    display: none;
+    font-size: auto;
+  } */
+/* Hampurilaismenu esiin ruudun muututtua pieneksi */
+  /* @media screen and (max-width: 600px) {
+    .navbar a{display: none;}
+    header a.hamburger-menu {
+      float: right;
+      display: block;
+    }
+  } */
+
 .mainpage {
     background-image: url('img/Body\ tausta.jpg');
     background-position: center;
@@ -75,6 +89,7 @@ h4{
 footer a{
     color: #00BFFF;
     font-size: 20px;
+    margin: auto;
 }
 
  footer a:hover{
@@ -84,11 +99,3 @@ footer a{
 footer a:visited {
     color: #DDA0DD;
   }
-
-.footer-link1{
-   padding-right: 300px;
-}
-
-.footer-link2{
-    padding-left: 300px;
- }
