@@ -5,9 +5,8 @@ body {
 .otsikko{
     text-align:center !important;
     margin:0 auto;
-    padding: 500px;
-    padding-top: 700px;
-
+    padding:25%;
+    margin-top: 230px;
 }
 
 /* Nav-bar*/
