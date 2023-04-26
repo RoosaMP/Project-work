@@ -44,6 +44,13 @@ body {
     margin: 0 !important;
 }
 
+.main-content{
+    background-color: #F9F7F0;
+    border-radius: 25px;
+    margin-top: 5%;
+    text-align: center;
+}
+
 footer{
 	background-color: #072A40;
 	padding: 2rem;
@@ -61,12 +68,20 @@ h4{
     font-size: 20px;
 }
 
+footer a{
+    color: #00BFFF;
+    font-size: 20px;
+}
+
+ /* Footer linkit kun hiirtä käyttää päällä */
+ footer a:hover{
+    color: #F9F7F0 !important;
+}
+
 .footer-link1{
-   color: #00BFFF;
-   font-size: 20px;
+   padding-right: 300px;
 }
 
 .footer-link2{
-    color: #00BFFF;
-    font-size: 20px;
+    padding-left: 300px;
  }
