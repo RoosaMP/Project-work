@@ -5,6 +5,9 @@ body {
 .otsikko{
     text-align:center !important;
     margin:0 auto;
+    padding: 500px;
+    padding-top: 700px;
+
 }
 
 /* Nav-bar*/
@@ -20,12 +23,12 @@ body {
 
 /* Nav-bar linkin tekstin väri */
 .nav-link{
-    color: black !important;
+    color: #072A40 !important;
 }
 
 /* Nav-bar linkit kun hiirtä käyttää päällä */
 .navbar-nav a:hover{
-    color: white !important;
+    color: #F9F7F0 !important;
 }
 
 /* Tällä saa headerin ilman reunoja ja kehyksiä */
@@ -37,23 +40,21 @@ body {
 .mainpage {
     background-image: url('img/Body\ tausta.jpg');
     background-position: center;
-    height: 300vh;
+    height: 150vh;
     width: 100%;
     padding: 0 !important;
     margin: 0 !important;
 }
 
-/* footer */
 footer{
 	background-color: #072A40;
 	padding: 2rem;
 	position: relative;
 	height: auto;
-    color: #fff;
+    color: #F9F7F0;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	margin: 0 auto;
     width: 100%;
 }
-/* footer */
