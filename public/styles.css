@@ -53,14 +53,23 @@ body {
     }
   } */
 
-.mainpage {
+.parallax {
+    /* The image used */
     background-image: url('img/Body\ tausta.jpg');
+  
+    /* Set a specific height */
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
     background-position: center;
-    height: 150vh;
-    width: 100%;
-    padding: 0 !important;
-    margin: 0 !important;
-}
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+  }
 
 .main-content{
     background-color: #F9F7F0;
