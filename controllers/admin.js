@@ -1,7 +1,6 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const router = express.Router();
 
 const app = express();
 
@@ -51,8 +50,35 @@ const delete_post = async (req,res) => {
     };
 };
 
+const edit_post = async (req,res,next) => {
+    try {
+        const postId = req.params.id;
+        const post = await Post.findById(postId);
+        res.render('edit-posts', { post });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
+};
+
+const update_post = async (req,res,next) => {
+    try {
+        const postId = req.params.id;
+        const { title, context } = req.body;
+        const post = await Post.findByIdAndUpdate(postId, { title, context }, {new: true});
+        res.redirect('/admin');
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
+};
+
 module.exports = {
     home,
     create_post,
-    delete_post
+    delete_post,
+    edit_post,
+    update_post
 }
