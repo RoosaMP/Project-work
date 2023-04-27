@@ -50,7 +50,7 @@ const delete_post = async (req,res) => {
     };
 };
 
-const edit_post = async (req,res,next) => {
+const edit_post = async (req,res) => {
     try {
         const postId = req.params.id;
         const post = await Post.findById(postId);
@@ -62,7 +62,7 @@ const edit_post = async (req,res,next) => {
     }
 };
 
-const update_post = async (req,res,next) => {
+const update_post = async (req,res) => {
     try {
         const postId = req.params.id;
         const { title, context } = req.body;
