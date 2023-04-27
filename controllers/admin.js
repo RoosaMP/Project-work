@@ -5,9 +5,6 @@ const router = express.Router();
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
@@ -41,15 +38,18 @@ const create_post = (req,res,next) => {
     });
 };
 
-const delete_post = async (req,res,next) => {
-    const posttId = req.body.postId;
+const delete_post = async (req,res) => {
     try {
-        await Post.findByIdAndRemove(posttId);
-        res.redirect('/');
+        const postId = req.params.id;
+        console.log(postId)
+        await Post.findByIdAndDelete(postId)
+            .then(post => {
+                res.redirect('/admin');
+            })
     }
-    catch (err) {
+    catch(err) {
         console.log(err)
-    }
+    };
 };
 
 module.exports = {

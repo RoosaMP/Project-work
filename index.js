@@ -4,6 +4,8 @@ const exphbs = require('express-handlebars'); //require express-handlebars
 const app = express(); //require express
 require('dotenv').config();
 const routes = require('./routes');
+const methodOverride = require('method-override');
+
 
 app.engine('handlebars', exphbs.engine({
     defaultLayout: 'main', //setting up main.handlebars as default layout
@@ -15,6 +17,7 @@ app.engine('handlebars', exphbs.engine({
 
 app.use(express.urlencoded({ extended: true }));
 app.use('/', routes);
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));
