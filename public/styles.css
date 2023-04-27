@@ -1,4 +1,4 @@
-/* body {
+ body {
     font-family: 'Impact';
 }
 
@@ -13,7 +13,7 @@ p{
     padding-right: 150px;
 }
 
-/
+
 .navbar{
     background-image: url("img/Header-tausta.jpg") !important;
     background-position: center;
@@ -48,7 +48,7 @@ p{
 /* .nopadding {
     padding: 0 !important;
     margin: 0 !important;
-} */
+} 
 
 /* .parallax-container { */
     /* The image used */
@@ -67,7 +67,7 @@ p{
     flex-direction: column;
   } */
 
-/* .main-content{
+ .main-content{
     background-color: #F9F7F0;
     border-radius: 25px;
     margin-top: 5%;
@@ -103,4 +103,4 @@ footer a{
 
 footer a:visited{
     color: #C0C0C0!important;
-  } */ 
+  } 
