@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: 'Impact';
 }
 
@@ -7,12 +7,13 @@ p{
 }
 
 .otsikko{
-    text-align:center !important;
-    margin:0 auto;
-    padding:25%;
+    align-items: center !important;
+    margin: auto; 
+    padding-left: 150px;
+    padding-right: 150px;
 }
 
-/* Nav-bar*/
+/
 .navbar{
     background-image: url("img/Header-tausta.jpg") !important;
     background-position: center;
@@ -23,12 +24,18 @@ p{
     background-size: cover;
 }
 
-/* Nav-bar linkin tekstin väri */
+
 .nav-link{
     color: #072A40 !important;
 }
 
-/* Nav-bar linkit kun hiirtä käyttää päällä */
+@media only screen and (max-width: 600px) {
+    .nav-link {
+      background-color: #e7feff  !important;
+    }
+  }
+
+
 .navbar-nav a:hover{
     color: #F9F7F0 !important;
 }
@@ -38,43 +45,29 @@ p{
   }
 
 /* Tällä saa headerin ilman reunoja ja kehyksiä */
-.nopadding {
+/* .nopadding {
     padding: 0 !important;
     margin: 0 !important;
-}
+} */
 
-/* Hamburilaismenu piiloon*/
-.hamburger-menu {
-    display: none;
-    font-size: auto;
-  }
-/* Hampurilaismenu esiin ruudun muututtua pieneksi */
-  /* @media screen and (max-width: 600px) {
-    .navbar a{display: none;}
-    header a.hamburger-menu {
-      float: right;
-      display: block;
-    }
-  } */
-
-.parallax-container {
+/* .parallax-container { */
     /* The image used */
-    background-image: url('img/Body\ tausta.jpg');
+    /* background-image: url('img/Body\ tausta.jpg'); */
   
     /* Set a specific height */
-    min-height: 100vh; 
+    /* min-height: 100vh;  */
   
     /* Create the parallax scrolling effect */
-    background-attachment: fixed;
+    /* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     display: flex;
     flex-direction: column;
-  }
+  } */
 
-.main-content{
+/* .main-content{
     background-color: #F9F7F0;
     border-radius: 25px;
     margin-top: 5%;
@@ -110,4 +103,4 @@ footer a{
 
 footer a:visited{
     color: #C0C0C0!important;
-  }
+  } */ 
