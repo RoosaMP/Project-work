@@ -45,27 +45,27 @@ p{
   }
 
 /* Tällä saa headerin ilman reunoja ja kehyksiä */
-/* .nopadding {
+.nopadding {
     padding: 0 !important;
     margin: 0 !important;
 } 
 
-/* .parallax-container { */
+.parallax-container {
     /* The image used */
-    /* background-image: url('img/Body\ tausta.jpg'); */
+    background-image: url('img/Body\ tausta.jpg');
   
     /* Set a specific height */
-    /* min-height: 100vh;  */
+    min-height: 100vh; 
   
     /* Create the parallax scrolling effect */
-    /* background-attachment: fixed;
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     display: flex;
     flex-direction: column;
-  } */
+  }
 
  .main-content{
     background-color: #F9F7F0;
