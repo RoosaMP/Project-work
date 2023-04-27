@@ -41,9 +41,8 @@ const create_post = (req,res,next) => {
 const delete_post = async (req,res) => {
     try {
         const postId = req.params.id;
-        console.log(postId)
         await Post.findByIdAndDelete(postId)
-            .then(post => {
+            .then(result => {
                 res.redirect('/admin');
             })
     }
