@@ -28,6 +28,7 @@ app.use('', require('./routes/kauppa.js'));
 app.use('', require('./routes/yhteystiedot.js'));
 app.use('', require('./routes/saavutettavuus.js'));
 app.use('', require('./routes/admin.js'));
+app.use('', require('./routes/login.js'));
 
 const PORT = process.env.PORT || 3000; //listen port 3000
 app.listen(PORT, () => console.log(`Listening port ${PORT}`)); 
