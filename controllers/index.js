@@ -9,7 +9,7 @@ const Post = require('../models/post.js');
 
 const home = async (req,res) => {
     try {
-        const posts = await Post.find({});
+        const posts = await Post.find().limit(1).sort({$natural: -1});
         res.render('index', { posts });
     }
     catch (err) {
