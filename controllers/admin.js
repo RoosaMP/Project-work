@@ -9,7 +9,6 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
 const Post = require('../models/post.js');
 
 
-
 const home = async (req,res) => {
     try {
         const posts = await Post.find({});
