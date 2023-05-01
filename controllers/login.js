@@ -5,7 +5,6 @@ const router = express.Router();
 const app = express();
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken')
-const webTokenSecret = "7b73853bbf076a6cd9fb3e89b5c3b67fccc6f5d819cbae42d7996ea9ec73b7be7d0f00"
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
 mongoose.connect(dbURI);
@@ -23,6 +22,11 @@ const home = async (req, res) => { //Login-sivulle
         res.status(500).send('Server error');
     }
 } 
+
+const logout = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1}) //Cookieta ei saa poistettua, mutta laitetaan se tyhjäksi ja aika minimiin
+    res.redirect('/');
+}
 
 const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
     try {
@@ -47,26 +51,25 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
             });
             }
         else { //Jos tunnus löytyi ajetaan seuraavaa
-            bcrypt.compare(password, adminInfo.password).then(function (result) //Verrataan syötettyä salasanaa kryptattuun salasanaan
+            const auth = bcrypt.compare(password, adminInfo.password)//Verrataan syötettyä salasanaa kryptattuun salasanaan
             {
-                if (result)
+                if (auth)
                 {
-                    const maxAge = 3 * 60 * 60; //Luodaan token. Pitää saada vielä toimimaan
-                    const token = jwt.sign(
-                        { id: adminInfo._id, username },
-                        webTokenSecret,
+                    const maxAge = 3 * 60 * 60; //Cookie sesson aika (3 tuntia).
+                    const webToken = process.env.WEBTOKEN; //Haetaan webtoken env-tiedostosta
+                    const token = jwt.sign( //Luodaan token mikä sisältää käyttäjän id:n, käyttäjänimen, tokenin ja iän
+                        { id: adminInfo._id },
+                        webToken,
                     {
                         expiresIn : maxAge,
                     }
                     );
                     console.log(token);
-                    res.cookie("jwt", token, {
-                        httpOnly: true,
-                        maxAge: maxAge * 1000,
+                    res.cookie('jwt', token, { //Luodaan cookie kirjautumista varten
+                        httpOnly: true, //Cookie ei näy frontendissä
+                        maxAge: maxAge * 1000, //Cookie session-aika. 3 tuntia.
                     });
-                    
-
-                    res.redirect('/admin') //Jos on sama niin mennään admin-sivulle
+                    res.redirect('/admin') //Ohjataan salasanan tunnistuksen ja cookien luomisen jälkeen admin-sivulle
                 }
                 else
                 {
@@ -76,7 +79,7 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
                     errormessage : "Login error: wrong password"
                 });
                 }
-            })
+            }
          }
     }
     catch (err) {
@@ -88,5 +91,6 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
 
 module.exports = {
     home,
+    logout,
     checkLogin
 }
