@@ -64,7 +64,6 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
                         expiresIn : maxAge,
                     }
                     );
-                    console.log(token);
                     res.cookie('jwt', token, { //Luodaan cookie kirjautumista varten
                         httpOnly: true, //Cookie ei näy frontendissä
                         maxAge: maxAge * 1000, //Cookie session-aika. 3 tuntia.

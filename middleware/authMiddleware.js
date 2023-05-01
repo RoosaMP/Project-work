@@ -16,7 +16,6 @@ const adminAuth = (req, res, next) => {
         }
         else
         {
-          console.log('Cookie found');
           next();
           }
         })
