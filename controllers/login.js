@@ -26,15 +26,23 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
         const { username, password } = req.body; //Haetaan syötetyt käyttäjänimi ja salasana
         if (!username || !password) { //Testataan onko syötetty käyttäjätunnusta tai salasanaa
             res.status(400).json;
-            res.redirect('/login'); //Jos ei ole syötetty heitetään käyttäjä takaisin login-sivulle
+            res.render('login', //Jos ei ole syötetty heitetään käyttäjä takaisin login-sivulle
+            { 
+                pagetitle : "Login to adminpage",
+                errormessage : "Login error: username or password not given"
+            });
         }
 
         const adminInfo = await User.findOne({ username, password }) //Haetaan tietokannasta löytyykö vastaavia tunnuksia ja salasanaa mitä syötetty
         
         if (!adminInfo) {
             console.log("Login not succesful");
-            res.redirect('/login'); //Jos ei ole syötetty heitetään käyttäjä takaisin login-sivulle
-        }
+            res.render('login', 
+            { 
+                pagetitle : "Login to adminpage",
+                errormessage : "Login error: wrong username or password"
+            });
+            }
         else {
             console.log("Login succesful");
             res.redirect('/admin'); //Jos tunnus ja salasana löytyy tietokannasta heitetään käyttäjä admin-sivulle
