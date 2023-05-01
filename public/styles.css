@@ -99,3 +99,7 @@ footer a{
 footer a:visited{
     color: #C0C0C0!important;
   } 
+
+.urheilublogi-main{
+text-align: left !important;
+}
