@@ -23,9 +23,9 @@ const home = async (req, res) => { //Login-sivulle
     }
 } 
 
-const logout = (req, res) => {
-    res.cookie('jwt', '', { maxAge: 1}) //Cookieta ei saa poistettua, mutta laitetaan se tyhjäksi ja aika minimiin
-    res.redirect('/');
+const logout = (req, res) => { //Uloskirjautumistoiminto
+    res.cookie('jwt', '', { maxAge: 1}) //Cookieta ei saa poistettua, mutta laitetaan se tyhjäksi ja session aika minimiin
+    res.redirect('/'); //Ohjataan etusivulle
 }
 
 const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
