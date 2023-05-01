@@ -3,6 +3,10 @@ const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
   title: String,
   context: String,
+  post_date: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const Post = mongoose.model('Post', postSchema);

@@ -15,15 +15,13 @@ const home = async (req,res) => {
             pagetitle : "Admin",
             posts
         });
-
-
 }
 
 const create_post = (req,res,next) => {
-
     const post = new Post({
         title: req.body.title,
-        context: req.body.context
+        context: req.body.context,
+        post_date: new Date()
     });
 
     post.save()

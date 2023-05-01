@@ -5,6 +5,7 @@ const app = express(); //require express
 require('dotenv').config();
 const routes = require('./routes');
 const methodOverride = require('method-override');
+const moment = require('moment');
 
 
 app.engine('handlebars', exphbs.engine({
@@ -12,6 +13,11 @@ app.engine('handlebars', exphbs.engine({
     runtimeOptions: {
         allowProtoPropertiesByDefault: true,
         allowProtoMethodsByDefault: true
+    },
+    helpers: {
+        moment: function(date) {
+            return moment(date).format('DD.MM.YYYY, h:mm:ss a');
+        }
     }
 }));
 

@@ -10,15 +10,16 @@
 </div>
 
 <div class="cards">
-    {{#each posts}}
-        <div class="card">
-            <h2>{{this.title}}</h2>
-            <p>{{this.context}}</p>
-            <form action="/posts/{{id}}?_method=DELETE" method="POST">
-                <input type="hidden" name="_method" value="DELETE">
-                <button type="submit">Delete</button>
-            </form>
-            <a href="/posts/{{id}}/edit">Edit</a>
-        </div>
-    {{/each}}
+  {{#each posts}}
+    <div class="card">
+      <h2>{{this.title}}</h2>
+      <p>{{this.context}}</p>
+      <p>Posted: {{moment this.post_date format="DD-MM-YYYY"}}</p>
+      <form action="/posts/{{id}}?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+      </form>
+      <a href="/posts/{{id}}/edit">Edit</a>
+    </div>
+  {{/each}}
 </div>
