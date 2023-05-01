@@ -8,15 +8,11 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
 const Post = require('../models/post.js');
 
 const home = async (req,res) => {
-    try {
-        const posts = await Post.find().limit(1).sort({$natural: -1});
-        res.render('index', { posts });
+        const posts = await Post.find();//.limit(1).sort({$natural: -1});
+        res.render('index', {
+        pagetitle: "Etusivu",
+        posts});
     }
-    catch (err) {
-        console.log(err);
-        res.status(500).send('Server error');
-    }
-}
 
 module.exports = {
     home

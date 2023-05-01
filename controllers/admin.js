@@ -10,14 +10,13 @@ const Post = require('../models/post.js');
 
 
 const home = async (req,res) => {
-    try {
         const posts = await Post.find({});
-        res.render('admin', { posts });
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500).send('Server error');
-    }
+        res.render('admin', {
+            pagetitle : "Admin",
+            posts
+        });
+
+
 }
 
 const create_post = (req,res,next) => {

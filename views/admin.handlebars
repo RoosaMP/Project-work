@@ -1,11 +1,13 @@
 <h1>{{pagetitle}}</h1>
 
-<form method="POST" action="/addpost">
-    <label>Create your post</label>
-    <input type="text" name="title">
-    <textarea name="context"></textarea>
-    <button type="submit">Submit</button>
-</form>
+<div class="card">
+    <form method="POST" action="/addpost">
+        <label>Create your post</label>
+        <input type="text" name="title">
+        <textarea name="context"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
 <div class="cards">
     {{#each posts}}
