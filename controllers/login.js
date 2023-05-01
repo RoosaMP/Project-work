@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const router = express.Router();
 const app = express();
+const bcrypt = require("bcryptjs");
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
 mongoose.connect(dbURI);
@@ -33,9 +34,9 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
             });
         }
 
-        const adminInfo = await User.findOne({ username, password }) //Haetaan tietokannasta löytyykö vastaavia tunnuksia ja salasanaa mitä syötetty
+        const adminInfo = await User.findOne({ username }) //Haetaan tietokannasta löytyykö vastaavia tunnuksia mitä syötetty
         
-        if (!adminInfo) {
+        if (!adminInfo) { //Jos tunnusta ei löytynyt palataan login-sivulle
             console.log("Login not succesful");
             res.render('login', 
             { 
@@ -43,10 +44,18 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
                 errormessage : "Login error: wrong username or password"
             });
             }
-        else {
-            console.log("Login succesful");
-            res.redirect('/admin'); //Jos tunnus ja salasana löytyy tietokannasta heitetään käyttäjä admin-sivulle
-        }
+        else { //Jos tunnus löytyi ajetaan seuraavaa
+            bcrypt.compare(password, adminInfo.password).then(function (result) //Verrataan syötettyä salasanaa kryptattuun salasanaan
+            {
+                result
+                ? res.redirect('/admin') //Jos on sama niin mennään admin-sivulle
+                : res.render('login', //Jos salasana ei täsmää palataan login-sivulle
+                { 
+                    pagetitle : "Login to adminpage",
+                    errormessage : "Login error: wrong password"
+                });
+            })
+         }
     }
     catch (err) {
         return next(err);
