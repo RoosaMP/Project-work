@@ -6,6 +6,7 @@
         <div class="card">
             <h2>{{this.title}}</h2>
             <p>{{this.context}}</p>
+            <p>Posted: {{moment this.post_date format="DD-MM-YYYY"}}</p>
         </div>
     {{/each}}
 </div>
