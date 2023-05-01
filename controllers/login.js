@@ -51,7 +51,7 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
             });
             }
         else { //Jos tunnus löytyi ajetaan seuraavaa
-            const auth = bcrypt.compare(password, adminInfo.password)//Verrataan syötettyä salasanaa kryptattuun salasanaan
+            bcrypt.compare(password, adminInfo.password).then(function (auth)//Verrataan syötettyä salasanaa kryptattuun salasanaan
             {
                 if (auth)
                 {
@@ -78,7 +78,7 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
                     errormessage : "Login error: wrong password"
                 });
                 }
-            }
+            })
          }
     }
     catch (err) {
