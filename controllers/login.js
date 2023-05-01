@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const app = express();
 const bcrypt = require("bcryptjs");
+const jwt = require('jsonwebtoken')
+const webTokenSecret = "7b73853bbf076a6cd9fb3e89b5c3b67fccc6f5d819cbae42d7996ea9ec73b7be7d0f00"
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
 mongoose.connect(dbURI);
@@ -47,13 +49,32 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
         else { //Jos tunnus löytyi ajetaan seuraavaa
             bcrypt.compare(password, adminInfo.password).then(function (result) //Verrataan syötettyä salasanaa kryptattuun salasanaan
             {
-                result
-                ? res.redirect('/admin') //Jos on sama niin mennään admin-sivulle
-                : res.render('login', //Jos salasana ei täsmää palataan login-sivulle
+                if (result)
+                {
+                    const maxAge = 60 * 60;
+                    const token = jwt.sign(
+                        { id: adminInfo._id, username },
+                    webTokenSecret,
+                    {
+                        expiresIn : maxAge,
+                    }
+                    );
+                    res.cookie("jwt", token, {
+                        httpOnly: true,
+                        maxAge: maxAge * 1000,
+                    });
+                    
+
+                    res.redirect('/admin') //Jos on sama niin mennään admin-sivulle
+                }
+                else
+                {
+                res.render('login', //Jos salasana ei täsmää palataan login-sivulle
                 { 
                     pagetitle : "Login to adminpage",
                     errormessage : "Login error: wrong password"
                 });
+                }
             })
          }
     }

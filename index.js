@@ -6,6 +6,7 @@ require('dotenv').config();
 const routes = require('./routes');
 const methodOverride = require('method-override');
 const moment = require('moment');
+const cookieParser = require('cookie-parser');
 
 
 app.engine('handlebars', exphbs.engine({
@@ -24,6 +25,7 @@ app.engine('handlebars', exphbs.engine({
 app.use(express.urlencoded({ extended: true }));
 app.use('/', routes);
 app.use(methodOverride('_method'));
+app.use(cookieParser());
 
 app.set('view engine', 'handlebars');
 app.use(express.static('public'));

@@ -8,20 +8,22 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
 
-
 const home = async (req,res) => {
+    try {
         const posts = await Post.find({});
-        res.render('admin', {
-            pagetitle : "Admin",
-            posts
-        });
+        res.render('admin', { posts });
+    }
+    catch (err) {
+        console.log(err);
+        res.status(500).send('Server error');
+    }
 }
 
 const create_post = (req,res,next) => {
+
     const post = new Post({
         title: req.body.title,
-        context: req.body.context,
-        post_date: new Date()
+        context: req.body.context
     });
 
     post.save()
