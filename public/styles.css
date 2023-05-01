@@ -6,8 +6,25 @@ p{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+main li{
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
 a{
     color: #072A40 !important;
+}
+
+h1{
+    font-size: 40px !important;
+}
+h2{
+    font-size: 30px !important;
+}
+h3{
+    font-size: 25px !important;
+}
+h4{
+    font-size: 20px !important;
 }
 
 a:visited{
@@ -20,7 +37,6 @@ a:visited{
     padding-left: 250px;
     padding-right: 250px;
 }
-
 
 .navbar{
     background-image: url("img/Header-tausta.jpg") !important;
