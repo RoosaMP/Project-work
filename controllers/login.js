@@ -51,14 +51,15 @@ const checkLogin = async (req,res,next) => { //Tarkistetaan login-tiedot
             {
                 if (result)
                 {
-                    const maxAge = 60 * 60;
+                    const maxAge = 3 * 60 * 60; //Luodaan token. Pitää saada vielä toimimaan
                     const token = jwt.sign(
                         { id: adminInfo._id, username },
-                    webTokenSecret,
+                        webTokenSecret,
                     {
                         expiresIn : maxAge,
                     }
                     );
+                    console.log(token);
                     res.cookie("jwt", token, {
                         httpOnly: true,
                         maxAge: maxAge * 1000,

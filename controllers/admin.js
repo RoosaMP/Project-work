@@ -1,12 +1,15 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
+const jwt = require('jsonwebtoken');
+const webTokenSecret = "7b73853bbf076a6cd9fb3e89b5c3b67fccc6f5d819cbae42d7996ea9ec73b7be7d0f00";
 
 const app = express();
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
+
 
 const home = async (req,res) => {
     try {
