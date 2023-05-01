@@ -61,7 +61,7 @@ p{
     flex-direction: column;
   }
 
- .main-content{
+ main{
     background-color: #F9F7F0;
     border-radius: 25px;
     margin-top: 5%;
