@@ -10,10 +10,10 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
 
-
+// admin home sivun näkymä
 const home = async (req,res) => {
     try {
-        const posts = await Post.find({});
+        const posts = await Post.find({}); // haetaan kaikki julkaisut Post tietokannasta
         res.render('admin', { posts });
     }
     catch (err) {
@@ -22,11 +22,13 @@ const home = async (req,res) => {
     }
 }
 
+// lisätään uusi julkaisu
 const create_post = (req,res,next) => {
 
     const post = new Post({
         title: req.body.title,
-        context: req.body.context
+        context: req.body.context,
+        post_date: new Date()
     });
 
     post.save()
