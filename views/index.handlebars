@@ -6,7 +6,7 @@
         <div class="card">
             <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="40%" height="40%"/></p>
             <h2>{{this.title}}</h2>
-            <p>{{this.context}}</p>
+            <p style="white-space: pre-line">{{this.context}}</p>
             <p>Posted: {{moment this.post_date format="DD-MM-YYYY"}}</p>
         </div>
     {{/each}}
