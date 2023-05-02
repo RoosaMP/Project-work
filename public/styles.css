@@ -147,7 +147,12 @@ footer a:visited{
 text-align: left !important;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (max-width: 600px) {
-
+/* Menun pysyy sopivalla kohdalla ruudun pienentyessä */
+@media only screen and (max-width: 1315px) {
+.otsikko{
+margin-left: 130px;
+}
+.navbar-toggler-icon{
+align-self: center !important;
+}
 }
