@@ -17,8 +17,11 @@ app.engine('handlebars', exphbs.engine({
         allowProtoMethodsByDefault: true
     },
     helpers: {
-        moment: function(date) {
+        moment: (date) => {
             return moment(date).format('DD.MM.YYYY');
+        },
+        base64: (buffer) => {
+            return buffer.toString('base64');
         }
     }
 }));

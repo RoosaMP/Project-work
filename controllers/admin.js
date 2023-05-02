@@ -2,6 +2,9 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 const webTokenSecret = "7b73853bbf076a6cd9fb3e89b5c3b67fccc6f5d819cbae42d7996ea9ec73b7be7d0f00";
 
 const app = express();
@@ -17,24 +20,30 @@ const home = async (req,res) => {
             pagetitle: "Admin-sivu",
             posts
         });
-    
 }
 
 // lisätään uusi julkaisu
 const create_post = (req,res,next) => {
-    const post = new Post({
+    const post =  new Post({
         title: req.body.title,
         context: req.body.context,
         post_date: new Date()
     });
+    if (req.file) {
+        post.img = {
+            data: fs.readFileSync(path.join(__dirname, '../public/uploads/' + req.file.filename)).toString('base64'),
+            contentType: 'image/png'
+        };
+    }
 
     post.save()
     .then(() => {
-      res.redirect('/admin');
+        res.redirect('/admin');
     })
     .catch((err) => {
-      return next(err);
+        return next(err);
     });
+
 };
 
 // poistetaan julkaisu
