@@ -29,9 +29,10 @@ const create_post = (req,res,next) => {
         context: req.body.context,
         post_date: new Date()
     });
+    // Add picture
     if (req.file) {
         post.img = {
-            data: fs.readFileSync(path.join(__dirname, '../public/uploads/' + req.file.filename)).toString('base64'),
+            data: fs.readFileSync(path.join(__dirname,'../public/uploads/' + req.file.filename)).toString('base64'),
             contentType: 'image/png'
         };
     }
