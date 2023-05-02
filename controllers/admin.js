@@ -12,14 +12,12 @@ const Post = require('../models/post.js');
 
 // admin home sivun näkymä
 const home = async (req,res) => {
-    try {
         const posts = await Post.find({}); // haetaan kaikki julkaisut Post tietokannasta
-        res.render('admin', { posts });
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500).send('Server error');
-    }
+        res.render('admin', {
+            pagetitle: "Admin-sivu",
+            posts
+        });
+    
 }
 
 // lisätään uusi julkaisu
