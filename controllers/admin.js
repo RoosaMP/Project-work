@@ -24,7 +24,6 @@ const home = async (req,res) => {
 
 // lisätään uusi julkaisu
 const create_post = (req,res,next) => {
-
     const post = new Post({
         title: req.body.title,
         context: req.body.context,
@@ -40,6 +39,7 @@ const create_post = (req,res,next) => {
     });
 };
 
+// poistetaan julkaisu
 const delete_post = async (req,res) => {
     try {
         const postId = req.params.id;
@@ -53,6 +53,7 @@ const delete_post = async (req,res) => {
     };
 };
 
+// etsitään muokattava julkaisu
 const edit_post = async (req,res) => {
     try {
         const postId = req.params.id;
@@ -65,6 +66,7 @@ const edit_post = async (req,res) => {
     }
 };
 
+// päivitetään julkaisuun uudet tiedot
 const update_post = async (req,res) => {
     try {
         const postId = req.params.id;
