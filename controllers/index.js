@@ -10,7 +10,7 @@ const Post = require('../models/post.js');
 const home = async (req,res) => {
         const posts = await Post.find().limit(1).sort({$natural: -1});
         res.render('index', {
-        pagetitle: "Etusivu",
+        pagetitle: "Tervetuloa KiekkoHAMKin virallisille fanisivuille",
         posts});
     }
 
