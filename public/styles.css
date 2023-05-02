@@ -55,6 +55,11 @@ a:visited{
     padding-right: 15rem;
 }
 
+.cards{
+    align-items: center !important;
+    text-align: center;
+}
+
 .navbar{
     background-image: url("img/Header-tausta.jpg") !important;
     background-position: center;
