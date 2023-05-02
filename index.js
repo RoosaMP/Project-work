@@ -18,7 +18,7 @@ app.engine('handlebars', exphbs.engine({
     },
     helpers: {
         moment: function(date) {
-            return moment(date).format('DD.MM.YYYY, h:mm:ss a');
+            return moment(date).format('DD.MM.YYYY');
         }
     }
 }));
