@@ -31,7 +31,7 @@ const create_product = (req,res,next) => {
     });
     // Lisätään kuva jos tiedosto on syötetty
     if (req.file) {
-        post.img = {
+        product.img = {
             data: fs.readFileSync(path.join(__dirname,'../public/uploads/' + req.file.filename)),
             contentType: 'image/png'
         };
