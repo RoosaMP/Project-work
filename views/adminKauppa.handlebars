@@ -24,7 +24,9 @@
 <div class="cards">
     {{#each products}}
         <div class="card">
+            {{#if this.img.data}}
             <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="40%" height="40%"/></p>
+            {{/if}}
             <h2>{{this.product}}</h2>
             <h2>{{this.price}}</h2>
             <h2>{{this.description}}</h2>
