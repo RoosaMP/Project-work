@@ -37,7 +37,7 @@ const create_product = (req,res,next) => {
         };
     }
 
-    post.save()
+    product.save()
     .then(() => {
         res.redirect('/adminkauppa');
     })
