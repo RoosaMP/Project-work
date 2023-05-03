@@ -49,8 +49,8 @@ a:visited{
   }
 
 .otsikko{
-    align-items: center !important;
-    margin: auto;
+    /* align-items: center !important; */
+    margin: auto; 
     padding-left: 15rem;
     padding-right: 15rem;
 }
@@ -152,12 +152,25 @@ footer a:visited{
 text-align: left !important;
 }
 
-/* Menun pysyy sopivalla kohdalla ruudun pienentyessä */
-@media only screen and (max-width: 1315px) {
+
+@media only screen and (max-width: 1320px) {
+    .nav-link{
+        font-size: 2.0rem !important; 
+    } 
+    .otsikko{
+        margin-left: 140px;
+        }
+    }
+
+@media only screen and (max-width: 900px) {
 .otsikko{
-margin-left: 130px;
-}
-.navbar-toggler-icon{
-align-self: center !important;
+margin-left: 75px;
+
 }
 }
+@media only screen and (max-width: 450px) {
+    .nav-link{
+    font-size: 1.2rem !important;
+    margin-right: 420px;
+    } 
+    }
