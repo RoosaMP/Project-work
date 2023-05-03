@@ -1,19 +1,16 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
+const shopSchema = new mongoose.Schema({
   product: String,
-  price: Integer,
+  price: Number,
   description: String,
-  size: {
-    type: Integer,
-    require: false
-  },
+  size:Number,
   img: {
     data: Buffer,
     contentType: String
   }
 });
 
-const Shop = mongoose.model('Shop', shopSchema);
+const Shop = mongoose.model('shop', shopSchema);
 
 module.exports = Shop;
