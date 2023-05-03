@@ -3,8 +3,13 @@
 <div class="card">
     <form method="POST" action="/addpost" enctype="multipart/form-data">
         <label><h2>Create your post</h2></label>
-        <p>Title of your post</p><input type="text" name="title">
-        <p>Context of your post</p><textarea name="context"></textarea>
+        <br>
+        <p><label for="postTitle">Title of your post:</label></p>
+        <input type="text" name="title" id="postTitle">
+        <br><br>
+        <p><label for="context">Context of your post:</label></p>
+        <textarea name="context" id="context"></textarea>
+        <br>
         <p>Upload an image</p><input type="file" name="image" value="">
         <br><br>
         <button type="submit">Submit</button>
