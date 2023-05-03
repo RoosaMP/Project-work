@@ -1,6 +1,10 @@
 <form method="POST" action="/login_check">
     <label><h1>{{pagetitle}}</h1></label>
-    <h2>{{errormessage}}</h2>
+
+    {{#if errormessage}}
+    <h2 class="error">{{errormessage}}</h2>
+    {{/if}}
+
     <label for="username">Username:</label> 
     <input type="text" name="username" id="username">
     <br>

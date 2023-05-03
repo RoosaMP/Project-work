@@ -19,7 +19,8 @@ const home = async (req, res) => { //Login-sivulle
     }
     catch (err) {
         console.log(err);
-        res.status(500).send('Server error');
+        // res.status(500).send('Server error'); Tämä vaihdettu jotta sain error messagen punaiseksi.
+        res.render('login', { pagetitle: "Login to adminpage", errormessage: "Server error" });
     }
 } 
 
