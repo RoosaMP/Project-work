@@ -29,7 +29,14 @@ main a{
     position: relative;
     transform: translateY(0%);
   }
-      
+
+  .productcard { /* Tuotekortin muotoilu */
+    box-shadow: 0px 0px 8px #ccc;
+    padding: 2rem;
+    margin: 2rem;
+    width: 300px;
+    text-align: left;
+}    
 
 h1{
     font-size: 2.5rem !important;
