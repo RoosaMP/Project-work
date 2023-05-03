@@ -11,7 +11,8 @@ const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +'
 const Product = require('../models/shop.js');
 
 const home = async (req,res) => {
-    const products = await Product.find();
+    const products = await Product.find({});
+    console.log(products);
     res.render('kauppa',
     {
         pagetitle : "KiekkoHAMKin fanituotekauppa",

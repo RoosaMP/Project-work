@@ -39,6 +39,7 @@ app.use('', require('./routes/kauppa.js'));
 app.use('', require('./routes/yhteystiedot.js'));
 app.use('', require('./routes/saavutettavuus.js'));
 app.use('', require('./routes/login.js'));
+app.use('', require('./routes/adminKauppa.js'));
 app.use('', adminAuth, require('./routes/admin.js')); //Admin-sivu vaatii adminauthentikoinnin
 
 
