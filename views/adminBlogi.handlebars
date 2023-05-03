@@ -1,0 +1,33 @@
+<h1>{{pagetitle}}</h1>
+
+<div class="card">
+    <form method="POST" action="/addpost" enctype="multipart/form-data">
+        <label><h2>Create your post</h2></label>
+        <br>
+        <p><label for="postTitle">Title of your post:</label></p>
+        <input type="text" name="title" id="postTitle">
+        <br><br>
+        <p><label for="context">Context of your post:</label></p>
+        <textarea name="context" id="context"></textarea>
+        <br>
+        <p>Upload an image</p><input type="file" name="image" value="">
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="cards">
+  {{#each posts}}
+    <div class="card">
+      <h2>{{this.title}}</h2>
+      <img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="200" height="200"/>
+      <p>{{this.context}}</p>
+      <p>Posted: {{moment this.post_date format="DD-MM-YYYY"}}</p> <!-- Muutetaan tietokannasta tuleva päivämäärä tieto haluttuun muotoon -->
+      <form action="/posts/{{id}}?_method=DELETE" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+      </form>
+      <a href="/posts/{{id}}/edit">Edit</a>
+    </div>
+  {{/each}}
+</div>
