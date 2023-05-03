@@ -8,11 +8,10 @@ const fs = require('fs');
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
-const Product = require('../models/shop.js');
+const Product = require('../models/product.js');
 
 const home = async (req,res) => {
     const products = await Product.find({});
-    console.log(products);
     res.render('kauppa',
     {
         pagetitle : "KiekkoHAMKin fanituotekauppa",

@@ -10,11 +10,11 @@ const app = express();
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
-const Shop = require('../models/shop.js');
+const Product = require('../models/product.js');
 
 // admin kauppa home sivun näkymä
 const home = async (req,res) => {
-        const products = await Shop.find({}); // haetaan kaikki julkaisut Post tietokannasta
+        const products = await Product.find({}); // haetaan kaikki julkaisut Post tietokannasta
         res.render('adminkauppa', {
             pagetitle: "Verkkokaupan adminsivu",
             products
@@ -23,7 +23,7 @@ const home = async (req,res) => {
 
 // lisätään uusi tuote
 const create_product = (req,res,next) => {
-    const product =  new Shop({
+    const product =  new Product({
         product: req.body.product,
         price: req.body.price,
         description: req.body.description,
@@ -51,7 +51,7 @@ const create_product = (req,res,next) => {
 const delete_product = async (req,res) => {
     try {
         const productId = req.params.id;
-        await Shop.findByIdAndDelete(productId)
+        await Product.findByIdAndDelete(productId)
             .then(result => {
                 res.redirect('/adminkauppa');
             })
