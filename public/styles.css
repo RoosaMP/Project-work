@@ -30,12 +30,17 @@ main a{
     transform: translateY(0%);
   }
 
-  .productcard { /* Tuotekortin muotoilu */
-    box-shadow: 0px 0px 8px #ccc;
-    padding: 2rem;
-    margin: 2rem;
-    width: 300px;
-    text-align: left;
+/* Tuotekortin muotoilu */
+.productcard {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(380px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    grid-gap: 2.5rem;
+    text-decoration: none;
+    color: #080808;
+    background-color: #fff;
+    padding: 25px;
 }    
 
 h1{

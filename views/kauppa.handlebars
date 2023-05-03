@@ -1,9 +1,9 @@
 <h1>{{pagetitle}}</h1>
 
 
-<div class="cards">
+<div class="productcard">
     {{#each products}}
-        <div class="productcard">
+        <div class="">
             {{#if this.img.data}}
             <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="50%"/></p>
             {{/if}}
