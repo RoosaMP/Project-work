@@ -11,7 +11,9 @@ const home = async (req,res) => {
         const posts = await Post.find().limit(1).sort({$natural: -1});
         res.render('index', {
         pagetitle: "Tervetuloa KiekkoHAMKin virallisille fanisivuille",
-        posts});
+        posts,
+        mainpagetitle1: "Tämä on KiekkoHAMKin virallisen faniyhdistyksen sivusto"
+    })
     }
 
 module.exports = {
