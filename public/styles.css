@@ -12,6 +12,9 @@ main li{
 
 main a{
     color: #072A40 !important;    
+}
+
+main a:hover{
     background-color:lightblue;
 }
 
