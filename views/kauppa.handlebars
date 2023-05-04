@@ -5,7 +5,7 @@
     {{#each products}}
         <div class="productcard">
             {{#if this.img.data}}
-            <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="50%"/></p>
+            <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="50%" title="{{this.product}}"/></p>
             {{/if}}
             <p>Tuote: {{this.product}}</p>
             <p>Hinta: {{this.price}}€</p>
