@@ -3,6 +3,7 @@
 
 <div class="card">
     <form method="POST" action="/addpost" enctype="multipart/form-data">
+        <br>
         <label><h2>Create your post</h2></label>
         <br>
         <p><label for="postTitle">Title of your post:</label></p>
@@ -15,11 +16,12 @@
         <br><br>
         <button type="submit">Submit</button>
     </form>
+    <br>
 </div>
-
+<br>
 <div class="cards">
   {{#each posts}}
-    <div class="card">
+    <div class="cardsinside">
       <h2>{{this.title}}</h2>
       <img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="200" height="200"/>
       <p>{{this.context}}</p>
@@ -28,8 +30,10 @@
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete</button>
       </form>
+      <br>
       <a href="/posts/{{id}}/edit">Edit</a>
     </div>
+    <br>
   {{/each}}
 </div>
 </html>
