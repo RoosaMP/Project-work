@@ -3,7 +3,7 @@
 
 <div class="productcard">
     {{#each products}}
-        <div class="    ">
+        <div class="productcard">
             {{#if this.img.data}}
             <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="50%"/></p>
             {{/if}}
@@ -11,6 +11,14 @@
             <p>Hinta: {{this.price}}€</p>
             <p>Tuotekuvaus: {{this.description}}</p>
             <p>Koko: {{this.size}}</p>
+            <form action="" method="POST">
+                <input type="hidden" name="" value="">
+                <button type="submit">Lisää ostoskoriin</button>
+            </form>
         </div>
     {{/each}}
-</div>  
+</div>
+<form action="" method="POST">
+    <input type="hidden" name="" value="">
+    <button type="submit">Siirry ostoskoriin</button>
+</form>

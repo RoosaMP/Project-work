@@ -34,15 +34,13 @@ main a:visited{
 
 /* Tuotekortin muotoilu */
 .productcard {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (minmax(380px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-    grid-gap: 2.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 1rem;
     text-decoration: none;
     color: #080808;
     background-color: #fff;
-    padding: 25px;
+    padding: 10%;
 }    
 
 h1{
