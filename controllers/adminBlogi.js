@@ -60,37 +60,8 @@ const delete_post = async (req,res) => {
     };
 };
 
-// etsitään muokattava julkaisu
-/*const edit_post = async (req,res) => {
-    try {
-        const postId = req.params.id;
-        const post = await Post.findById(postId);
-        res.render('edit-posts', { post });
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500).send('Server error');
-    }
-};
-*/
-// päivitetään julkaisuun uudet tiedot
-/*const update_post = async (req,res) => {
-    try {
-        const postId = req.params.id;
-        const { title, context } = req.body;
-        const post = await Post.findByIdAndUpdate(postId, { title, context }, {new: true});
-        res.redirect('/admin');
-    }
-    catch (err) {
-        console.log(err);
-        res.status(500).send('Server error');
-    }
-};
-*/
 module.exports = {
     home,
     create_post,
-    delete_post,
-    //edit_post,
-    //update_post
+    delete_post
 }
