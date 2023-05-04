@@ -1,5 +1,6 @@
 <html lang="en">
 <h1>{{pagetitle}}</h1>
+<h2><a href="/admin">Go back</a></h2>
 
 <div class="card">
     <form method="POST" action="/addproduct" enctype="multipart/form-data">
@@ -20,8 +21,9 @@
         <br><br>
         <button type="submit">Submit</button>
     </form>
+    <br>
 </div>
-
+<br>
 <div class="cards">
     {{#each products}}
         <div class="cardsinside">
@@ -40,5 +42,6 @@
     <br>
     {{/each}}
 </div>
-</div>
+<h2><a href="/admin">Go back</a></h2>
+
 </html>
