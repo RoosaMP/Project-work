@@ -10,12 +10,14 @@ main li{
     font-family: Arial, Helvetica, sans-serif;    
 }
 
-a{
-    color: #072A40 !important;
-}
 main a{
+    color: #072A40 !important;    
     background-color:lightblue;
 }
+
+main a:visited{
+    color: #191970!important;
+  }
 
   .skip-to-content-link {
     height: 30px;
@@ -58,10 +60,6 @@ h4{
     font-size: 1.25rem !important;
     font-family: Arial, Helvetica, sans-serif;  
 }
-
-a:visited{
-    color: #191970!important;
-  }
 
 .otsikko{
     /* align-items: center !important; */
@@ -161,7 +159,7 @@ footer a{
 }
 
 footer a:visited{
-    color: #C0C0C0!important;
+    color: lightblue !important;
   } 
 
 .urheilublogi-main{
