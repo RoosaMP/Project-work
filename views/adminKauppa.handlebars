@@ -26,12 +26,16 @@
     {{#each products}}
         <div class="card">
             {{#if this.img.data}}
-            <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="40%" height="40%"/></p>
+            <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="20%"/></p>
             {{/if}}
-            <h2>{{this.product}}</h2>
-            <h2>{{this.price}}</h2>
-            <h2>{{this.description}}</h2>
-            <h2>{{this.size}}</h2>
+            <p><b>Tuote: </b>{{this.product}}</p>
+            <p><b>Hinta: </b>{{this.price}}€</p>
+            <p><b>Tuotekuvaus: </b>{{this.description}}</p>
+            <p><b>Koko:</b>{{this.size}}</p>
+            <form action="/products/{{id}}?_method=DELETE" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit">Delete</button>
+            </form>
         </div>
     {{/each}}
 </div>
