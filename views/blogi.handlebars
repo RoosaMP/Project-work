@@ -4,7 +4,7 @@
 
 <div class="cards">
     {{#each posts}}
-        <div class="card">
+        <div class="cardsinside">
             <p><img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="40%"/></p>
             <h2>{{this.title}}</h2>
             <p style="white-space: pre-line">{{this.context}}</p>
