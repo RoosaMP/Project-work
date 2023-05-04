@@ -4,22 +4,22 @@
 
 <div class="card">
     <form method="POST" action="/addpost" enctype="multipart/form-data">
-        <br>
+        <br aria-hidden="true"/>
         <label><h2>Create your post</h2></label>
-        <br>
+        <br aria-hidden="true"/>
         <p><label for="postTitle">Title of your post:</label></p>
         <input type="text" name="title" id="postTitle">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <p><label for="context">Context of your post:</label></p>
         <textarea name="context" id="context"></textarea>
-        <br>
+        <br aria-hidden="true"/>
         <p>Upload an image</p><input type="file" name="image" value="">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <button type="submit">Submit</button>
     </form>
-    <br>
+    <br aria-hidden="true"/>
 </div>
-<br>
+<br aria-hidden="true"/>
 <div class="cards">
   {{#each posts}}
     <div class="cardsinside">
@@ -31,10 +31,10 @@
         <input type="hidden" name="_method" value="DELETE">
         <button type="submit">Delete</button>
       </form>
-      <br>
+      <br aria-hidden="true"/>
       <a href="/posts/{{id}}/edit">Edit</a>
     </div>
-    <br>
+    <br aria-hidden="true"/>
   {{/each}}
 </div>
 <h2><a href="/admin">Go back</a></h2>

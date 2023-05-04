@@ -5,25 +5,25 @@
 <div class="card">
     <form method="POST" action="/addproduct" enctype="multipart/form-data">
         <label><h2>Create new product</h2></label>
-        <br>
+        <br aria-hidden="true"/>
         <p><label for="productName">Name of your product:</label></p>
         <input type="text" name="product" id="productName">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <p><label for="productPrice">Price of your product:</label></p>
         <input type="number" name="price" id="productPrice">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <p><label for="productDescription">Description of your product:</label></p>
         <input type="text" name="description" id="productDescription">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <p><label for="productSize">Size of your product:</label></p>
         <input type="text" name="size" id="productSize">
         <p>Upload an image</p><input type="file" name="image" value="">
-        <br><br>
+        <br aria-hidden="true"/><br aria-hidden="true"/>
         <button type="submit">Submit</button>
     </form>
-    <br>
+    <br aria-hidden="true"/>
 </div>
-<br>
+<br aria-hidden="true"/>
 <div class="cards">
     {{#each products}}
         <div class="cardsinside">
@@ -39,7 +39,7 @@
                 <button type="submit">Delete</button>
             </form>
         </div>
-    <br>
+    <br aria-hidden="true"/>
     {{/each}}
 </div>
 <h2><a href="/admin">Go back</a></h2>

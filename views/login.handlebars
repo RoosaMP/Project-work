@@ -1,17 +1,17 @@
 <html lang="en">
 <form method="POST" action="/login_check">
     <label><h1>{{pagetitle}}</h1></label>
-<br>
+<br aria-hidden="true"/>
     {{#if errormessage}}
     <h2 class="error">{{errormessage}}</h2>
     {{/if}}
 
     <label for="username">Username:</label> 
     <input type="text" name="username" id="username">
-    <br>
+    <br aria-hidden="true"/>
     <label for="password">Password: </label>
      <input type="password" name="password" id="password">
-    <br><br>
+    <br aria-hidden="true"/><br aria-hidden="true"/>
     <button type="submit">Login</button>
 </form>
 </html>
