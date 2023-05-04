@@ -16,7 +16,7 @@ main a{
 }
 
 main a:visited{
-    color: #191970!important;
+    color: #072A40 !important; t;
   }
 
   .skip-to-content-link {
@@ -62,7 +62,6 @@ h4{
 }
 
 .otsikko{
-    /* align-items: center !important; */
     margin: auto; 
     padding-left: 15rem;
     padding-right: 15rem;
@@ -81,21 +80,52 @@ h4{
     height: 18.75rem;
     padding: 6.25rem;
     background-size: cover;
+    align-items: center !important;
 }
 
 
-.nav-link{
-    color: #072A40 !important;
+.navbar a{
+    color: #191970!important;
     font-size: 2.188rem !important;
 }
 
-.navbar-nav a:hover{
+.navbar a:visited{
+    color: #072A40 !important;
+  }
+
+ .navbar a:hover{
     color: #F9F7F0 !important;
 }
 
-.navbar-nav a:visited{
-    color: #191970!important;
-  }
+.navbar a:active{
+    color:aqua !important;
+  } 
+  @media only screen and (max-width: 860px) {
+    .navbar a{
+        padding: 0% !important;
+        }
+    }
+
+ @media only screen and (max-width: 660px) {
+    .navbar a{
+        margin-right: 60px !important;
+        font-size: 1.8rem !important;
+}
+ }
+ @media only screen and (max-width: 570px) {
+    .navbar a{
+        margin-right: 145px !important;
+        font-size: 1.6rem !important;
+
+}
+}
+/* puhelinkoko */
+@media only screen and (max-width: 450px) {
+    .navbar a{
+    margin-right: 260px !important;
+
+    } 
+    } 
 
 
 /* Tällä saa headerin ilman reunoja ja kehyksiä */
@@ -154,13 +184,18 @@ footer a{
     margin: auto;
 }
 
- footer a:hover{
-    color: #F9F7F0 !important;
-}
-
 footer a:visited{
     color: lightblue !important;
   } 
+
+
+ footer a:hover{
+    color: #F9F7F0 !important;
+}
+footer a:active{
+    color:aqua !important;
+  } 
+
 
 .urheilublogi-main{
 text-align: left !important;
@@ -169,25 +204,3 @@ text-align: left !important;
 .error {
     color: red;
   }
-  
-@media only screen and (max-width: 1320px) {
-    .nav-link{
-        font-size: 2.0rem !important; 
-    } 
-    .otsikko{
-        margin-left: 140px;
-        }
-    }
-
-@media only screen and (max-width: 900px) {
-.otsikko{
-margin-left: 75px;
-
-}
-}
-@media only screen and (max-width: 450px) {
-    .nav-link{
-    font-size: 1.2rem !important;
-    margin-right: 420px;
-    } 
-    }
