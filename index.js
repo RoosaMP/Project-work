@@ -42,6 +42,7 @@ app.use('', require('./routes/login.js'));
 app.use('', require('./routes/adminKauppa.js'));
 app.use('', adminAuth, require('./routes/adminBlogi.js')); //Admin-sivu vaatii adminauthentikoinnin
 app.use('', require('./routes/admin.js'));
+app.use('', require('./routes/editPosts.js'));
 
 
 const PORT = process.env.PORT || 3000; //listen port 3000

@@ -85,6 +85,7 @@ h4{
 .navbar a{
     color: #191970!important;
     font-size: 2.188rem !important;
+    transition-duration: 0.4s;
 }
 
 .navbar a:visited{
@@ -180,6 +181,7 @@ footer a{
     color: #00BFFF !important;
     font-size: 1.25rem;
     margin: auto;
+    transition-duration: 0.4s;
 }
 
 footer a:visited{
@@ -198,6 +200,19 @@ footer a:active{
 .urheilublogi-main{
 text-align: left !important;
 }
+
+button{
+    background-color: #7CB9E8;
+    border-radius:  12px;
+    border-color: #191970;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+button:hover {
+    background-color:#072A40;
+    color: white;
+  }
 
 .error {
     color: red;

@@ -1,0 +1,18 @@
+<html lang="en">
+    <h1>{{pagetitle}}</h1>
+
+    <div class="card"></div>
+        <form method="POST" action="/posts/{{post.id}}">
+        <input type="hidden" name="_method" value="PUT">
+            <p><label>Title</label></p>
+            <input type="text" name="title" value="{{post.title}}">
+            <br><br>
+            <p><label>Context</label></p>
+            <textarea name="context">{{post.context}}</textarea>
+            <br><br>
+            <button type="submit">Update</button>
+            <br>
+            <a href="/admin">Go back</a>
+        </form>
+    </div>
+</html>

@@ -61,7 +61,7 @@ const delete_post = async (req,res) => {
 };
 
 // etsitään muokattava julkaisu
-const edit_post = async (req,res) => {
+/*const edit_post = async (req,res) => {
     try {
         const postId = req.params.id;
         const post = await Post.findById(postId);
@@ -72,9 +72,9 @@ const edit_post = async (req,res) => {
         res.status(500).send('Server error');
     }
 };
-
+*/
 // päivitetään julkaisuun uudet tiedot
-const update_post = async (req,res) => {
+/*const update_post = async (req,res) => {
     try {
         const postId = req.params.id;
         const { title, context } = req.body;
@@ -86,11 +86,11 @@ const update_post = async (req,res) => {
         res.status(500).send('Server error');
     }
 };
-
+*/
 module.exports = {
     home,
     create_post,
     delete_post,
-    edit_post,
-    update_post
+    //edit_post,
+    //update_post
 }

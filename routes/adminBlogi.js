@@ -17,7 +17,7 @@ const upload = multer({ storage: storage});
 router.get('/adminblogi', adminController.home);
 router.post('/addpost', upload.single('image'), adminController.create_post);
 router.delete('/posts/:id', adminController.delete_post);
-router.get('/posts/:id/edit', adminController.edit_post);
-router.post('/posts/:id', adminController.update_post);
+//router.get('/posts/:id/edit', adminController.edit_post);
+//router.post('/posts/:id', adminController.update_post);
 
 module.exports = router;
