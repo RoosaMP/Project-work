@@ -24,7 +24,7 @@
   {{#each posts}}
     <div class="cardsinside">
       <h2>{{this.title}}</h2>
-      <img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="200" height="200"/>
+      <img src="data:{{this.img.contentType}};base64,{{base64 this.img.data}}" width="200" height="200" title="{{this.title}}"/>
       <p>{{this.context}}</p>
       <p>Posted: {{moment this.post_date format="DD-MM-YYYY"}}</p> <!-- Muutetaan tietokannasta tuleva päivämäärä tieto haluttuun muotoon -->
       <form action="/posts/{{id}}?_method=DELETE" method="POST">
