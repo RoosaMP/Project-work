@@ -7,12 +7,12 @@
         <input type="hidden" name="_method" value="PUT">
             <p><label>Title</label></p>
             <input type="text" name="title" value="{{post.title}}">
-            <br><br>
+            <br aria-hidden="true"/><br aria-hidden="true"/>
             <p><label>Context</label></p>
             <textarea name="context">{{post.context}}</textarea>
-            <br><br>
+            <br aria-hidden="true"/><br aria-hidden="true"/>
             <button type="submit">Update</button>
-            <br>
+            <br aria-hidden="true"/>
             <a href="/admin">Go back</a>
         </form>
     </div>
