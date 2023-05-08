@@ -5,12 +5,20 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+// const Joi = require('joi');
 
 const app = express();
 
 const dbURI = 'mongodb+srv://'+ process.env.DBUSER +':'+ process.env.DBPASSWD +''+ process.env.CLUSTER +'.mongodb.net/'+ process.env.DB +'?retryWrites=true&w=majority'
  mongoose.connect(dbURI);
 const Post = require('../models/post.js');
+
+//Postauksen lisäämiseen validaatio
+// const postSchema = Joi.object({
+//     title: Joi.string().required(),
+//     context:Joi.string().required()
+// });
+
 
 // admin home sivun näkymä
 const home = async (req,res) => {
